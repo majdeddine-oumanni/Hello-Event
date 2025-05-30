@@ -11,6 +11,12 @@ public class Booking {
     private Long id;
     private LocalDate bookingDate;
 
+    @ManyToOne
+    private Event event;
+
+    @ManyToOne
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -42,10 +48,4 @@ public class Booking {
     public void setUser(User user) {
         this.user = user;
     }
-
-    @ManyToOne
-    private Event event;
-
-    @ManyToOne
-    private User user;
 }
