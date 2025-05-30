@@ -1,0 +1,8 @@
+package com.api.backend.repositories;
+
+import com.api.backend.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findUsersByEmail(String email);
+}
