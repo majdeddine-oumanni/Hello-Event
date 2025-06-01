@@ -26,4 +26,14 @@ public class EventController {
     public List<EventDTO> findAllEvents(){
         return eventService.getAllEvents();
     }
+
+    @PutMapping("/update/{id}")
+    public EventDTO update(@RequestBody EventDTO dto, @PathVariable Long id){
+        return eventService.updateEvent(dto, id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Long id){
+        eventService.deleteEvent(id);
+    }
 }

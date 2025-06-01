@@ -28,4 +28,18 @@ public class EventService {
         List<EventDTO> eventDTOList = eventMapper.toDTOs(eventRepository.findAll());
         return eventDTOList;
     }
+
+    public EventDTO updateEvent(EventDTO dto, Long id){
+        Event foundEvent = eventRepository.findEventById(id);
+        foundEvent.setName(dto.getName());
+        foundEvent.setCategory(dto.getCategory());
+        foundEvent.setDate(dto.getDate());
+        foundEvent.setLocation(dto.getLocation());
+        Event event = eventRepository.save(foundEvent);
+        return eventMapper.toDTO(event);
+    }
+
+    public void deleteEvent(Long id){
+        eventRepository.deleteById(id);
+    }
 }
