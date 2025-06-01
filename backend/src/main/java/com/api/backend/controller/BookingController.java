@@ -5,11 +5,13 @@ import com.api.backend.model.Booking;
 import com.api.backend.service.BookingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/test")
 public class BookingController {
     private final BookingService bookingService;
 
@@ -17,8 +19,8 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    @GetMapping("/{id}")
-    public List<BookingDTO> bookingDTOS(@PathVariable Long id){
-        return bookingService.bookingDTOS(id);
+    @GetMapping
+    public String bookingDTOS(){
+        return "it's working";
     }
 }

@@ -30,7 +30,7 @@ public class AuthenticationService {
         user.setName(request.getName());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(Role.CLIENT);
+        user.setRole(request.getRole());
 
         repository.save(user);
 

@@ -1,5 +1,6 @@
 package com.api.backend.auth;
 
+import com.api.backend.model.Role;
 import lombok.*;
 
 @AllArgsConstructor
@@ -11,6 +12,15 @@ public class RegisterRequest {
     private String name;
     private String email;
     private String password;
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getName() {
         return name;
