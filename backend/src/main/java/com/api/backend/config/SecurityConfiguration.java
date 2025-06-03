@@ -30,6 +30,8 @@ public class SecurityConfiguration {
                 .requestMatchers("/event/**").hasRole("ADMIN")
                 .requestMatchers("/clients/manage/**").hasRole("ADMIN")
                 .requestMatchers("/client/**").hasRole("CLIENT")
+                .requestMatchers("/booking/**").hasRole("CLIENT")
+                .requestMatchers("/eventList").hasRole("CLIENT")
                 .anyRequest()
                 .authenticated()
                 .and()
