@@ -25,8 +25,7 @@ public class EventService {
     }
 
     public List<EventDTO> getAllEvents(){
-        List<EventDTO> eventDTOList = eventMapper.toDTOs(eventRepository.findAll());
-        return eventDTOList;
+        return eventMapper.toDTOs(eventRepository.findAll());
     }
 
     public EventDTO updateEvent(EventDTO dto, Long id){
