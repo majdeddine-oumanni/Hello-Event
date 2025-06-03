@@ -5,6 +5,8 @@ import com.api.backend.mapper.UserMapper;
 import com.api.backend.model.Role;
 import com.api.backend.model.User;
 import com.api.backend.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,9 @@ import java.util.List;
 public class ClientService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public ClientService(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
@@ -32,7 +37,7 @@ public class ClientService {
         User user = userRepository.findUserById(id);
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         return userMapper.toDTO(userRepository.save(user));
     }
 }

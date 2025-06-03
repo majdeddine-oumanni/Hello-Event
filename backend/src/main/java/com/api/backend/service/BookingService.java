@@ -22,4 +22,7 @@ public class BookingService {
         List<BookingDTO> bookingDTOS = bookingMapper.toDTOs(bookingRepository.findByEvent_Id(id));
         return bookingDTOS;
     }
+    public BookingDTO bookingIntoEvent(Long event_id, Long user_id){
+        
+    }
 }
