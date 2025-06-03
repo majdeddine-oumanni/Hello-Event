@@ -11,6 +11,7 @@ import java.time.LocalDate;
 public class BookingDTO {
     private Long event_id;
     private Long user_id;
+    private LocalDate bookingDate;
 
     public Long getEvent_id() {
         return event_id;
@@ -35,6 +36,4 @@ public class BookingDTO {
     public void setBookingDate(LocalDate bookingDate) {
         this.bookingDate = bookingDate;
     }
-
-    private LocalDate bookingDate;
 }
